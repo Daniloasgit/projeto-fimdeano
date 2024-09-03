@@ -1,0 +1,29 @@
+
+
+header {
+    background-image: url(imagens/blackleaf.jpg);
+    background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  height:300px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.list1{
+
+    background-color: rgb(81, 116, 46);
+
+}
+
+.elements{
+    display: flex;
+  
+}
+
+li{
+    list-style: none;
+    margin-right: 20px;
+
+}
