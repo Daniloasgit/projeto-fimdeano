@@ -1,29 +1,41 @@
-
+body {
+    text-decoration: none;
+}
 
 header {
     background-image: url(imagens/blackleaf.jpg);
     background-repeat: no-repeat;
-  background-size: cover;
-  object-fit: cover;
-  height:300px;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
-.list1{
-
-    background-color: rgb(81, 116, 46);
-
-}
-
-.elements{
+    background-size: cover;
+    object-fit: cover;
+    height:300px;
     display: flex;
+    justify-content: end;
+    align-items: center;
   
 }
 
-li{
-    list-style: none;
-    margin-right: 20px;
+.list1 {
+    padding: 1px;
+    border-radius: 2px;
+    display: flex;
+}
 
+
+ul li {
+    text-align: center;
+    background-color: rgb(81, 116, 46);
+    list-style: none;
+    padding: 5px;
+    border-style: outset;
+    margin-right: 10px;
+}
+
+li a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.904);
+    font-size: 20px;
+}
+
+.list2{
+    
 }
