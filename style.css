@@ -16,7 +16,6 @@ header {
     display: flex;
     justify-content: end;
     align-items: center;
-  
 }
 
 .list1 {
@@ -45,9 +44,9 @@ li a{
     padding: 0;
     display: flex;
     list-style: none;
- border: 60px;
- background-color: rgb(141, 76, 2);
- margin: 0;
+    border: 60px;
+    background-color: rgb(141, 76, 2);
+    margin: 0;
 }
 
 .list2 li {
@@ -56,9 +55,13 @@ li a{
     padding: 10px;
     border-style: solid;
     font-size: 20px;
-    width: 100px;
-   border-color: rgb(1, 41, 48);
-   position: relative;
+    width: 150px;
+    border-color: rgb(1, 41, 48);
+    position: relative;
+}
+
+.list2 li a{
+    color: black;
 }
 
 .cob{
@@ -66,13 +69,38 @@ li a{
 }
 
 .cob ul {
-    margin: 0 10px 0 0;
+    margin: 0;
     padding: 0;
-    display: none; 
     text-decoration: none;
-    border: 1px solid #ccc;
     list-style: none;
+    display: none;
+   
 }
+
+.cob ul li {
+right: 11px;
+width: 80px;
+}
+
+
+.jab{
+    top: 0;
+}
+
+.jab ul{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    display: none;
+   
+}
+
+.jab ul li{
+    right: 10px;
+width: 80px;
+}
+
  li:hover ul { 
     display: block;
     position: absolute;
