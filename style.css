@@ -1,5 +1,7 @@
- html ul li { float: left;}
-html ul li a {height: 1%;}
+*{
+    margin: 0;
+    box-sizing: 0;
+}
 
 body {
     text-decoration: none;
@@ -7,10 +9,21 @@ body {
     background-color: rgb(141, 76, 2);
 }
 
+.logo{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+    
+}
+
 header {
-    background-image: url(imagens/blackleaf.jpg);
+    background-image: url(imagens/Designer.jpeg);
     background-repeat: no-repeat;
-    background-size: cover;
+ background-size: cover;
+ background-position: center;
+
     object-fit: cover;
     height:300px;
     display: flex;
@@ -79,7 +92,7 @@ li a{
 
 .cob ul li {
 right: 11px;
-width: 80px;
+width: 95px;
 }
 
 
@@ -98,7 +111,7 @@ width: 80px;
 
 .jab ul li{
     right: 10px;
-width: 80px;
+width: 95px;
 }
 
  li:hover ul { 
@@ -120,3 +133,16 @@ display: flex;
 p {
     font-size: 20px;
 }
+
+.news{
+    display: flex;
+  
+}
+.news img {
+    width:700px;
+    border:15px solid rgb(81, 116, 46); 
+    box-shadow: 5px 5px 5px 5px;
+    margin: 25px;
+}
+
+
