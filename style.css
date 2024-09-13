@@ -145,4 +145,74 @@ p {
     margin: 25px;
 }
 
+.nov{
+    font-size: xx-large;
+    text-align: center;
+}
 
+.titulo{
+    font-size: 50px;
+    margin-left: 20px;
+}
+.titulo2{
+    font-size: 30px;
+    margin-left: 20px;
+    text-align: center;
+}
+hr{
+    border: 2px solid rgb(1, 41, 48);
+}
+
+.popu{
+    font-size: 40px;
+    text-align: center;
+}
+
+.lares{
+    display: flex;
+}
+
+.lares img{
+    width:700px;
+    border:15px solid rgb(81, 116, 46); 
+    box-shadow: 5px 5px 5px 5px;
+    margin: 25px;
+}
+
+.aviso{
+    font-size: 20px;
+    color: red;
+    text-align: center;
+}
+
+.h2{
+    margin: auto;
+    width: 38%;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.74);
+    text-shadow: 1px 3px 2px rgb(0, 0, 0);
+    filter: opacity(90%);
+    position: absolute;
+    bottom: -1500px;
+    left: 640px;
+    text-align: center
+}
+
+.textAlert{ /*DIV DO TEXTO*/
+        width: 40%;
+        display: flex;
+    text-align: center;
+    height: 800px;
+    margin: 0 auto;
+    /*background-image: url(imagens/incendio.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1000px;*/
+
+}
+
+.incendio{
+filter: blur(4px);
+position: relative;
+width: 100%;
+}
