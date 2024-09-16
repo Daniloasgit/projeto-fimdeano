@@ -139,7 +139,7 @@ p {
   
 }
 .news img {
-    width:700px;
+    width:500px;
     border:15px solid rgb(81, 116, 46); 
     box-shadow: 5px 5px 5px 5px;
     margin: 25px;
@@ -173,16 +173,18 @@ hr{
 }
 
 .lares img{
-    width:700px;
+    width:500px;
     border:15px solid rgb(81, 116, 46); 
     box-shadow: 5px 5px 5px 5px;
     margin: 25px;
 }
 
-.aviso{
-    font-size: 20px;
+.icon{
+    font-size: 50px;
     color: red;
     text-align: center;
+   background-color: black;
+    
 }
 
 .h2{
@@ -193,8 +195,8 @@ hr{
     text-shadow: 1px 3px 2px rgb(0, 0, 0);
     filter: opacity(90%);
     position: absolute;
-    bottom: -1500px;
-    left: 640px;
+    top: 1730px;
+    left: 535px;
     text-align: center
 }
 
