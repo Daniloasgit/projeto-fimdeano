@@ -19,7 +19,7 @@ body {
 }
 
 header {
-    background-image: url(imagens/Designer.jpeg);
+    background-image: url(imagens/fundo.jpg);
     background-repeat: no-repeat;
  background-size: cover;
  background-position: center;
@@ -225,17 +225,27 @@ width: 100%;
     align-items: center;
     font-size: 18px;
 }
+
+footer {
+    background-color: #028202;
+    color: white;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 footer img{
-    width: 30px;
-    height: 50px;
-    margin: 0 10px;
+    width: 50px;
+    height: 70px;
+    margin: 30px 10px;
 }
 
-.footer-img{
+.footer-img {
     display: flex;
-    justify-content: end;
-    margin: 0 15px ;
-    
+    margin: 0 15px;
+    align-items: center;
+    flex-direction: column;
 }
 .copy{
     display: flex;
@@ -244,32 +254,45 @@ footer img{
 }
 
 .rep{
-    display: flex;
-    justify-content: end;
     font-size: 15px;
-    margin-right: 70px;
 }
-.local{
-    display: block;    
+.local {
+    display: block;
     font-size: 20px;
- margin: 0 0 0 20px;
+    margin: 0 0 0 20px;
     text-align: start;
-  
 }
 .map {
     width: 500px;
     height: 300px;
 }
 .pagamento{
-    display: inline;
 
+    display: grid;
     align-items: center;
-    justify-content: end;
+    margin: 0px 60px 0px 0px;
+    justify-content: center;
     font-size: 20px;
-    margin: 0 100px ;
+    align-content: center;
+
 }
 .pagamento img{
-    width: 200px;
-    height: 100px;
-    margin: 0 10px;
+    width: 150px;
+    height: 50px;
+    margin: 5px;
+}
+.boleto {
+    background-color: white;
+}
+
+.footer-text{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.footer-text a{
+    margin: 5px;
 }
