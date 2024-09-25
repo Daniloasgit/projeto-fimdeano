@@ -19,15 +19,16 @@ const POSTAnimaisADD = (req,res) => {
     const {Animal, especie, chip_iden} = req.body;
 
 bd.query (
-    'SELECT * FROM animais WHERE Animal=?, AND especie=?, AND chip_iden=?',
+    'SELECT * FROM animais WHERE Animal=? AND especie=? AND chip_iden=?',
+    
     [Animal, especie, chip_iden],
-    (err,res) => {
+    (err,result) => {
         if(err) {
             console.error('ERRO AO VERIFICAR Animal', err);
             res.status(500).send('ERRO AO VERIFICAR Animal');
             return;
         }
-        if(res.length > 0) {
+        if(result.length > 0) {
             res.status(400).send('Animal já cadastrado');
             return;
         }
@@ -35,7 +36,7 @@ bd.query (
     bd.query(
         'INSERT INTO animais (Animal,especie,chip_iden) VALUES (?, ?, ?)',
     [ Animal, especie, chip_iden],
-    (err,res)=> {
+    (err,result)=> {
     
         if (err) {
             console.error('ERRO AO ADICIONAR Animal', err);
@@ -55,15 +56,15 @@ const UpdateAnimaisPUT = (req,res) => {
     const{id} = req.params;
     const {Animal, especie, chip_iden} = req.body;
     bd.query(
-        'UPDATE animais SET Animal = ?, especie = ?, chip_iden = ? WHERE = id',
-[Animal,especie,chip_iden],
-(err,res) => {
+        'UPDATE animais SET Animal = ?, especie = ?, chip_iden = ? WHERE id = ?',
+[Animal, especie, chip_iden, id],
+(err,results) => {
     if(err) {
         console.error('ERRO AO ATUALIZAR animaL', err);
         res.status(500).send('ERRO AO ATUALIZAR animaL');
         return;
     }
-if(res.effectedRows===0){
+if(results.effectedRows===0){
     res.status(404).send('Animal não encontrado');
     return;
 }
@@ -88,7 +89,7 @@ const updateAnimaisPATCH = (req,res) =>{
     bd.query(
         `UPDATE animais SET ${query.join(',')} where id = ?`,
         values,
-        (err,res) => {
+        (err,result) => {
             if(err) {
                 console.error('ERRO AO ATUALIZAR animaL', err);
                 res.status(500).send('ERRO AO ATUALIZAR animaL');
@@ -107,7 +108,7 @@ const updateAnimaisPATCH = (req,res) =>{
 const DELETEAnimais = (req,res) => {
     const {id} = req.params;
     bd.query( 'DELETE FROM animais WHERE ID = ?', [id],
-        (err,res) => {
+        (err,result) => {
             if(err) {
                 console.error('ERRO AO DELETAR animais', err);
                 res.status(500).send('ERRO AO DELETAR animais');
@@ -127,14 +128,14 @@ const DELETEAnimais = (req,res) => {
 // TABELA CLIENTES
 
 const GETAllClientes = (req,res) =>{
-    bd.query('SELECT * FROM clientes',(err,res)=>{
+    bd.query('SELECT * FROM clientes',(err,result)=>{
         if (err) {
             console.error('ERRO AO OBTER clientes', err);
-            
+
             res.status(500).send('ERRO AO OBTER clientes');
             return;
         }
-        res.json(res);
+        res.json(result);
     });
 
 };
@@ -142,24 +143,24 @@ const GETAllClientes = (req,res) =>{
 const POSTClientesADD = (req,res) => {
     const {nome, email, senha, telefone,cpf} = req.body;
 
-bd.query (
-    'SELECT * FROM clientes WHERE nome = ?, AND email = ?, AND senha = ?, AND telefone = ?, AND cpf = ?',
-    [nome, email,  senha, telefone,cpf],
+    'SELECT * FROM clientes WHERE nome = ? AND email = ? AND senha = ? AND telefone = ? AND cpf = ?',
+    
+    [nome, email, senha, telefone,cpf],
     (err,result) => {
         if(err) {
             console.error('ERRO AO VERIFICAR clientes', err);
             res.status(500).send('ERRO AO VERIFICAR clientes');
             return;
         }
-        if(res.length > 0) {
+        if(result.length > 0) {
             res.status(400).send('cliente já cadastrado');
             return;
         }
 
     bd.query(
-        'INSERT INTO clientes (nome,email, senha, telefone,cpf) VALUES (?, ?, ?, ?, ?)',
+        'INSERT INTO clientes (nome, email, senha, telefone,cpf) VALUES (?, ?, ?, ?, ?)',
     [ nome, email, senha, telefone,cpf],
-    (err,res)=> {
+    (err,result)=> {
     
         if (err) {
             console.error('ERRO AO ADICIONAR cliente', err);
@@ -172,7 +173,6 @@ bd.query (
                 }
             );
         }
-    );
 };
 
 const UpdateClientesPUT = (req,res) => {
@@ -255,10 +255,10 @@ const DELETEClientes = (req,res) => {
         UpdateAnimaisPUT,
         updateAnimaisPATCH,
         DELETEAnimais,
-        GETAllClientes,
 //tabela animais
 
 //tabela clientes
+GETAllClientes,
 POSTClientesADD,
 UpdateClientesPUT,
 updateClientesPATCH,
