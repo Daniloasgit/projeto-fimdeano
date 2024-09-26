@@ -143,51 +143,55 @@ const GETAllClientes = (req,res) =>{
 const POSTClientesADD = (req,res) => {
     const {nome, email, senha, telefone,cpf} = req.body;
 
-    'SELECT * FROM clientes WHERE nome = ? AND email = ? AND senha = ? AND telefone = ? AND cpf = ?',
+
+    bd.query (
+        'SELECT * FROM clientes WHERE nome = ? AND email = ? AND senha = ? AND telefone = ? AND cpf = ?',
+        
+        [nome, email, senha, telefone,cpf],
+        (err,result) => {
+            if(err) {
+                console.error('ERRO AO VERIFICAR clientes', err);
+                res.status(500).send('ERRO AO VERIFICAR clientes');
+                return;
+            }
+            if(result.length > 0) {
+                res.status(400).send('cliente já cadastrado');
+                return;
+            }
     
-    [nome, email, senha, telefone,cpf],
-    (err,result) => {
-        if(err) {
-            console.error('ERRO AO VERIFICAR clientes', err);
-            res.status(500).send('ERRO AO VERIFICAR clientes');
-            return;
-        }
-        if(result.length > 0) {
-            res.status(400).send('cliente já cadastrado');
-            return;
-        }
-
-    bd.query(
-        'INSERT INTO clientes (nome, email, senha, telefone,cpf) VALUES (?, ?, ?, ?, ?)',
-    [ nome, email, senha, telefone,cpf],
-    (err,result)=> {
+        bd.query(
+            'INSERT INTO clientes (nome, email, senha, telefone,cpf) VALUES (?, ?, ?,?,?)',
+        [nome, email, senha, telefone,cpf],
+        (err,result)=> {
+        
+            if (err) {
+                console.error('ERRO AO ADICIONAR cliente', err);
+                res.status(500).send('ERRO AO ADICIONAR cliente');
+                return;
+            }
     
-        if (err) {
-            console.error('ERRO AO ADICIONAR cliente', err);
-            res.status(500).send('ERRO AO ADICIONAR cliente');
-            return;
-        }
+        res.status(201).send('cliente adicionado com sucesso');
+    
+                    }
+                );
+            }
+        );
+    };
 
-    res.status(201).send('cliente adicionado com sucesso');
-
-                }
-            );
-        }
-};
-
+//completo
 const UpdateClientesPUT = (req,res) => {
     const{id} = req.params;
-    const { nome, email, senha, telefone,cpf} = req.body;
+    const {nome, email, senha, telefone,cpf} = req.body;
     bd.query(
-        'UPDATE clientes SET nome = ?, email = ?, senha = ?, telefone = ?, cpf = ? WHERE = id',
-[ nome, email, senha, telefone,cpf],
-(err,res) => {
+        'UPDATE clientes SET nome = ?, email = ?, senha = ?, telefone = ?, cpf = ? WHERE id = ?',
+[nome, email, senha, telefone,cpf,id],
+(err,results) => {
     if(err) {
         console.error('ERRO AO ATUALIZAR cliente', err);
         res.status(500).send('ERRO AO ATUALIZAR cliente');
         return;
     }
-if(res.effectedRows===0){
+if(results.effectedRows===0){
     res.status(404).send('cliente não encontrado');
     return;
 }
@@ -212,7 +216,7 @@ const updateClientesPATCH = (req,res) =>{
     bd.query(
         `UPDATE clientes SET ${query.join(',')} where id = ?`,
         values,
-        (err,res) => {
+        (err,result) => {
             if(err) {
                 console.error('ERRO AO ATUALIZAR clientes', err);
                 res.status(500).send('ERRO AO ATUALIZAR clientes');
@@ -231,10 +235,10 @@ const updateClientesPATCH = (req,res) =>{
 const DELETEClientes = (req,res) => {
     const {id} = req.params;
     bd.query( 'DELETE FROM clientes WHERE ID = ?', [id],
-        (err,res) => {
+        (err,result) => {
             if(err) {
-                console.error('ERRO AO DELETAR clientes', err);
-                res.status(500).send('ERRO AO DELETAR clientes');
+                console.error('ERRO AO DELETAR cliente', err);
+                res.status(500).send('ERRO AO DELETAR cliente');
                 return;
             }
             if(res.affectedRows===0){
@@ -247,6 +251,117 @@ const DELETEClientes = (req,res) => {
 };
 //TABELA CLIENTES
 
+/////////////////
+
+//TABELA PRODUTOS
+const GETAllProdutos = (req,res) =>{
+    bd.query('SELECT * FROM produtos',(err,result)=>{
+        if (err) {
+            console.error('ERRO AO OBTER produto', err);
+
+            res.status(500).send('ERRO AO OBTER produto');
+            return;
+        }
+        res.json(result);
+    });
+
+};
+
+const POSTProdutosADD = (req,res) => {
+    const {nome, data_vali, preco} = req.body;
+
+        bd.query(
+            'INSERT INTO produtos (nome, data_vali, preco) VALUES (?, ?, ?)',
+        [nome, data_vali, preco],
+        (err,result)=> {
+        
+            if (err) {
+                console.error('ERRO AO ADICIONAR produto', err);
+                res.status(500).send('ERRO AO ADICIONAR produto');
+                return;
+            }
+    
+        res.status(201).send('produto adicionado com sucesso');
+    
+                    }
+                );
+            }
+    ''
+
+
+//completo
+const UpdateProdutosPUT = (req,res) => {
+    const{id} = req.params;
+    const {nome, data_vali, preco} = req.body;
+    bd.query(
+        'UPDATE produtos SET nome = ?, data_vali = ?, preco = ? WHERE id = ?',
+[nome, data_vali, preco,id],
+(err,results) => {
+    if(err) {
+        console.error('ERRO AO ATUALIZAR produto', err);
+        res.status(500).send('ERRO AO ATUALIZAR produto');
+        return;
+    }
+if(results.effectedRows===0){
+    res.status(404).send('produto não encontrado');
+    return;
+}
+res.send('produto atualizado com sucesso')
+}
+    );
+};
+
+const updateProdutosPATCH = (req,res) =>{
+    const {id} = req.params;
+    const fields = req.body;
+    const query = [];
+    const values = [];
+
+    for (const[key,value] of Object.entries (fields)) {
+        query.push ( `${key} = ?`);
+        values.push(value)
+
+    }
+    values.push(id)
+
+    bd.query(
+        `UPDATE produtos SET ${query.join(',')} where id = ?`,
+        values,
+        (err,result) => {
+            if(err) {
+                console.error('ERRO AO ATUALIZAR produto', err);
+                res.status(500).send('ERRO AO ATUALIZAR produto');
+                return;
+        }
+        if(res.affectedRows===0) {
+            res.status(404).send('produto NÃO ENCONTRADO');
+            return;
+        }
+        res.send('produto ATUALIZADO COM SUCESSO');
+        } 
+    );
+};
+
+
+const DELETEProdutos = (req,res) => {
+    const {id} = req.params;
+    bd.query( 'DELETE FROM produtos WHERE ID = ?', [id],
+        (err,result) => {
+            if(err) {
+                console.error('ERRO AO DELETAR produto', err);
+                res.status(500).send('ERRO AO DELETAR produto');
+                return;
+            }
+            if(res.affectedRows===0){
+                res.status(404).send('produto não encontrado');
+                return;
+            }
+            res.send('produto deletado com sucesso');
+        }
+    );
+};
+
+//TABELA PRODUTOS
 
     module.exports = {
         //tabela animais
@@ -262,6 +377,14 @@ GETAllClientes,
 POSTClientesADD,
 UpdateClientesPUT,
 updateClientesPATCH,
-DELETEClientes
+DELETEClientes,
 //tabela clientes
+
+//tabela produtos
+        GETAllProdutos,
+        POSTProdutosADD,
+        UpdateProdutosPUT,
+        updateProdutosPATCH,
+        DELETEProdutos
+    //tabela produtos
     };

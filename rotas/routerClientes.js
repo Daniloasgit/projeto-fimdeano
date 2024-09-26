@@ -4,7 +4,7 @@ const routeController = require('../fonts/controller');
 
 router.get('/', routeController.GETAllClientes);
 
-router.post('/registro', routeController.POSTClientesADD);
+router.post('/', routeController.POSTClientesADD);
 
 router.put('/:id', routeController.UpdateClientesPUT);
 
