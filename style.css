@@ -304,3 +304,12 @@ footer img{
     font-family: 'Jacquarda Bastarda 9';
     font-size: 50px;
 }
+
+.tartaprin {
+    background-color: rgb(81, 116, 46);
+    padding: 0;
+}
+
+.tartaprin p{
+    font-size: 25px;
+}
