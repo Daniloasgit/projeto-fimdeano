@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
     margin: 0;
@@ -141,11 +141,19 @@ p {
     display: flex;
   
 }
+ .news p {
+font-family: Kanit;
+}
+.news h3{
+    text-align: center;
+    margin: 5px;
+}
 .news img {
     width:500px;
+    height: 350px;
     border:15px solid rgb(81, 116, 46); 
     box-shadow: 5px 5px 5px 5px;
-    margin: 25px;
+    margin: 20px;
 }
 
 .nov{
@@ -306,10 +314,67 @@ footer img{
 }
 
 .tartaprin {
-    background-color: rgb(81, 116, 46);
     padding: 0;
 }
 
-.tartaprin p{
-    font-size: 25px;
+.tartaprin p {
+    background-color: rgb(81, 116, 46);
+    font-size: 20px;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px;
+    margin: 0 0 0 20px;
+    padding: 8px;
+    width: 515px;
+    height: 280px;
+}
+
+.tartaprin button{
+    margin-top: 18px;
+    margin-left: 225px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: rgb(81, 116, 46);
+    color: black;
+    border: dashed;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+button:hover{
+    background-color: rgb(1, 41, 48);
+    color: rgb(0, 255, 157);
+}
+
+.milhoprin p{
+    background-color: rgb(81, 116, 46);
+    font-size: 19px;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px;
+    margin: 0 0 0 20px;
+    padding: 8px;
+    width: 515px;
+    height: 280px;
+}
+
+.milhoprin button{
+    margin-top: 18px;
+    margin-left: 225px;
+}
+
+.iguaprin p{
+    background-color: rgb(81, 116, 46);
+    font-size: 19px;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px;
+    margin: 0 0 0 20px;
+    padding: 8px;
+    width: 515px;
+    height: 280px;
+}
+
+.iguaprin button{
+    margin-top: 18px;
+    margin-left: 225px;
 }
