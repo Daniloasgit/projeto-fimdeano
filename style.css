@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 *{
     margin: 0;
     box-sizing: 0;
@@ -139,7 +139,7 @@ p {
 
 .news{
     display: flex;
-  
+  margin: 5px;
 }
  .news p {
 font-family: Kanit;
@@ -156,10 +156,6 @@ font-family: Kanit;
     margin: 20px;
 }
 
-.nov{
-    font-size: xx-large;
-    text-align: center;
-}
 
 .titulo{
     font-size: 50px;
@@ -174,21 +170,7 @@ hr{
     border: 2px solid rgb(1, 41, 48);
 }
 
-.popu{
-    font-size: 40px;
-    text-align: center;
-}
 
-.lares{
-    display: flex;
-}
-
-.lares img{
-    width:500px;
-    border:15px solid rgb(81, 116, 46); 
-    box-shadow: 5px 5px 5px 5px;
-    margin: 25px;
-}
 
 .icon{
     font-size: 50px;
@@ -199,17 +181,19 @@ hr{
    border: 5px solid rgb(1, 41, 48);;
 }
 
-.h2{
+.alerta{
     margin: auto;
-    width: 38%;
+    width: 40%;
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.74);
     text-shadow: 1px 3px 2px rgb(0, 0, 0);
     filter: opacity(90%);
     position: absolute;
-    top: 1730px;
-    left: 535px;
-    text-align: center
+    top: 2500px;
+    left: 520px;
+    text-align: center;
+    font-size: 25px;
+
 }
 
 .textAlert{ /*DIV DO TEXTO*/
@@ -229,6 +213,7 @@ hr{
 filter: blur(4px);
 position: relative;
 width: 100%;
+height: 99%;
 }
 .text-img{
     display: flex;
@@ -308,9 +293,10 @@ footer img{
     margin: 5px;
 }
 
-.nov{
-    font-family: 'Jacquarda Bastarda 9';
-    font-size: 50px;
+h2{
+    font-family: 'Anton';
+    font-size: xx-large;
+    text-align: center;
 }
 
 .tartaprin {
@@ -377,4 +363,80 @@ button:hover{
 .iguaprin button{
     margin-top: 18px;
     margin-left: 225px;
+}
+
+.lares h3{
+    text-align: center;
+}
+
+.popu{
+    font-size: 40px;
+    text-align: center;
+}
+
+.lares{
+    display: flex;
+    margin: 5px;
+}
+
+.lares img{
+    width:500px;
+    height: 350px;
+    border:15px solid rgb(81, 116, 46); 
+    box-shadow: 5px 5px 5px 5px;
+    margin: 20px;
+} 
+
+.lares p {
+    font-family: Kanit;
+}
+
+.jabupop p {
+    background-color: rgb(81, 116, 46);
+    font-size: 19px;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px;
+    margin: 0 0 0 20px;
+    padding: 8px;
+    width: 515px;
+    height: 280px;
+}
+.jabupop button{
+    margin-top: 18px;
+    margin-left: 225px;
+}
+.jibopop p{
+    background-color: rgb(81, 116, 46);
+    font-size: 19px;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px;
+    margin: 0 0 0 20px;
+    padding: 8px;
+    width: 515px;
+    height: 280px;
+}
+
+.jibopop button{
+    margin-top: 18px;
+    margin-left: 225px;
+}
+
+.teipop p {
+    background-color: rgb(81, 116, 46);
+    font-size: 19px;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px;
+margin: 0 0 0  20px;
+    padding: 8px;
+    width: 515px;
+    height: 280px;
+}
+
+.teipop button{
+    margin-top: 18px;
+    margin-left: 225px;
+}
+
+h3{
+    font-family: 'Anton';
 }
