@@ -85,12 +85,14 @@ li a{
 }
 
 .cob ul {
-    margin: 0;
+    margin: 10px 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
     display: none;
-   
+    width: 8px;
+    position: relative;
+    right: 95px;
 }
 
 .cob ul li {
@@ -104,12 +106,13 @@ width: 95px;
 }
 
 .jab ul{
-    margin: 0;
+    margin: 10px 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
     display: none;
-   
+    position: relative;
+    left: 5px;
 }
 
 .jab ul li{
@@ -440,3 +443,20 @@ margin: 0 0 0  20px;
 h3{
     font-family: 'Anton';
 }
+
+.botcar{
+    display: flex;
+    justify-content: end;
+    
+}
+
+.botcar img{
+    width: 40px;
+    margin: 5px;
+    background-color: azure;
+    border-radius: 15px;
+    position: fixed;
+    top: 250px;
+    cursor: pointer;
+}
+
