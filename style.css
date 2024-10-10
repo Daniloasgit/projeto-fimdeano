@@ -10,6 +10,16 @@ body {
     text-decoration: none;
     padding: 0;
     background-color: rgb(141, 76, 2);
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 100%;
+}
+
+.container {
+   width: 250px;
+   height: 100%;
+   background-color: rgb(255, 117, 24);
 }
 
 .logo{
