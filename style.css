@@ -8,7 +8,6 @@
 
 body {
     text-decoration: none;
-    padding: 0;
     background-color: rgb(141, 76, 2);
     padding: 0;
     margin: 0;
@@ -16,10 +15,39 @@ body {
     width: 100%;
 }
 
+.menu{
+    display: flex;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    margin-left: 1500px;
+    z-index: 1;
+}
+
 .container {
    width: 250px;
    height: 100%;
    background-color: rgb(255, 117, 24);
+   position: absolute;
+}
+
+.txt-menu{
+    font-family: 'Anton', sans-serif;
+position: relative;
+bottom: 90px;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+
+}
+
+.container img{
+    width: 50px;
+    height: 150px;
+    margin-left: 170px;
+    padding: 0px;
+    cursor: pointer;
+    background-color: #028202;
 }
 
 .logo{
@@ -36,7 +64,6 @@ header {
     background-repeat: no-repeat;
  background-size: cover;
  background-position: center;
-
     object-fit: cover;
     height:300px;
     display: flex;
