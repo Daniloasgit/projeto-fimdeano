@@ -1,3 +1,4 @@
+
 // Importa a conexão com o banco de dados
 const bd = require('../banco/dados');
 
