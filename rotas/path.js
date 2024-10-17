@@ -23,7 +23,7 @@ router.patch('/:id', routeController.updateAnimaisPATCH);
 router.delete('/:id', routeController.DELETEAnimais);
 
 // TABELA ANIMAIS 
-/////////////////////
+
 
 // Exporta o roteador para ser usado em outras partes da aplicação
 module.exports = router;

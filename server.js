@@ -1,11 +1,12 @@
 // Importa as bibliotecas necessárias
+const dotenv = require('dotenv'); // Carrega variáveis de ambiente do arquivo .env
+dotenv.config();
+
 const express = require('express'); // Framework para criar o servidor
 const cors = require('cors'); // Middleware para habilitar CORS
 const bodyParser = require('body-parser'); // Middleware para analisar o corpo das requisições
-const dotenv = require('dotenv'); // Carrega variáveis de ambiente do arquivo .env
-const tokenPath = require ('./rotas/tokenPath')
+
 // Carrega as variáveis de ambiente
-dotenv.config();
 
 // Importa a base de dados (presumivelmente para manipulação de dados)
 const bd = require('./banco/dados');
@@ -25,12 +26,16 @@ app.use(bodyParser.json());
 const pathRoutes = require('./rotas/path');
 const routerClientes = require('./rotas/routerClientes');
 const produtosRoutes = require('./rotas/produtos');
+const tokenPath = require ('./rotas/tokenPath');
+const tokenRoutes = require('./rotas/tokenRoutes');
 
 // Define as rotas principais da API
-app.use('api/tokenPath',pathRoutes)
 app.use('/api/animais', pathRoutes);
 app.use('/api/clientes', routerClientes);
 app.use('/api/produtos', produtosRoutes);
+
+app.use('/api/tokenPath',tokenPath);
+app.use('api/tokenRoutes', tokenRoutes);
 
 // Rota padrão que responde com uma mensagem de que o servidor está ativo
 app.get('/', (req, res) => {
