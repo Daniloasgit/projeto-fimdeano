@@ -3,7 +3,7 @@ const express = require('express');
 // Cria um novo roteador usando o Express
 const router = express.Router(); 
 // Importa o controlador que contém a lógica das rotas
-const routeController = require('../fonts/controller');
+const routeController = require('../fonts-controll/controller');
 
 // Rota para obter todos os produtos (GET)
 router.get('/', routeController.GETAllProdutos);

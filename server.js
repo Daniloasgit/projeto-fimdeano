@@ -27,7 +27,9 @@ const pathRoutes = require('./rotas/path');
 const routerClientes = require('./rotas/routerClientes');
 const produtosRoutes = require('./rotas/produtos');
 const tokenPath = require ('./rotas/tokenPath');
-const tokenRoutes = require('./rotas/tokenRoutes');
+
+// const tokenRoutes = require ('./rotas/tokenRoutes'); //ERRO!
+
 
 // Define as rotas principais da API
 app.use('/api/animais', pathRoutes);
@@ -35,7 +37,7 @@ app.use('/api/clientes', routerClientes);
 app.use('/api/produtos', produtosRoutes);
 
 app.use('/api/tokenPath',tokenPath);
-app.use('api/tokenRoutes', tokenRoutes);
+// app.use('/api/tokenRoutes',tokenRoutes); //ERRO!
 
 // Rota padrão que responde com uma mensagem de que o servidor está ativo
 app.get('/', (req, res) => {

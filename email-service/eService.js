@@ -9,21 +9,27 @@ const transEmail = nodemailer.createTransport({
     } 
   }); 
 
-  // Função para enviar e-mail 
-const sendEmail = (to, subject, text) => { 
-    const mailOptions = { 
-      from: process.env.EMAIL_USER, 
-      to, 
-      subject, 
-      text 
-    }; 
-   
-    transEmail.sendMail(mailOptions, (error, info) => { 
-      if (error) { 
-        return console.log('Erro ao enviar e-mail:', error); 
-      } 
-      console.log('E-mail enviado:', info.response); 
-    }); 
+ 
+// Função para enviar e-mails
+const sendEmail = (to, subject, text) => {  
+  // Cria um objeto com as opções do e-mail
+  const mailOptions = { 
+      from: process.env.EMAIL_USER, // O endereço de e-mail que envia a mensagem, obtido de variáveis de ambiente
+      to, // Destinatário do e-mail
+      subject, // Assunto do e-mail
+      text // Corpo do e-mail
   }; 
+
+  // Envia o e-mail usando a função 'sendMail' do objeto 'transEmail'
+  transEmail.sendMail(mailOptions, (error, info) => { 
+      // Se ocorrer um erro ao enviar o e-mail, loga o erro no console
+      if (error) { 
+          return console.log('Erro ao enviar e-mail:', error); 
+      } 
+      // Se o e-mail for enviado com sucesso, loga a resposta no console
+      console.log('E-mail enviado:', info.response); 
+  }); 
+}; 
+
    
   module.exports = { sendEmail };

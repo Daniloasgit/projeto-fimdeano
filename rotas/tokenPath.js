@@ -1,6 +1,6 @@
 const express = require('express'); // Importa o framework Express 
 const router = express.Router(); // Cria um novo roteador 
-const tokenController = require('../fonts/tokenController'); // Importa o controlador de autenticação 
+const tokenController = require('../fonts-controll/tokenController'); // Importa o controlador de autenticação 
 
 // Rota para registro de usuário 
 router.post('/register', tokenController.registerUser); 

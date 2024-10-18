@@ -5,11 +5,8 @@ const express = require('express');
 // Cria um novo roteador usando o Express
 const router = express.Router(); 
 // Importa o controlador que contém a lógica das rotas
-const routeController = require('../fonts/controller');
-
 const pathMiddleware = require('../middleware/pathmiddleware');
 
-// TABELA ANIMAIS 
 
 // Rota para obter todos os clientes (GET)
 router.get('/', pathMiddleware.GETAllClientes);
