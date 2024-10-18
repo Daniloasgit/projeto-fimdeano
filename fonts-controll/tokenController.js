@@ -54,7 +54,7 @@ const loginUser = async (req, res) => {
         // Compara a senha fornecida com a senha criptografada no banco de dados
         const comp = await bcrypt.compare(senha, user[0].senha);
         
-        // Se as senhas não corresponderem, retorna erro
+        // Se as credenciais não corresponderem, retorna erro
         if (!comp) {
             return res.status(400).send('Credenciais incorretas!');
         }
@@ -69,6 +69,7 @@ const loginUser = async (req, res) => {
         console.error('Erro ao autenticar usuário', err);
         return res.status(400).send('Erro ao autenticar usuário');
     }
+  
 };
 
 // Função para solicitar redefinição de senha
